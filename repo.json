@@ -1,0 +1,29 @@
+[
+  {
+    "id": "redeploy-repo",
+    "execute-command": "./reDeploy.sh",
+        "command-working-directory": "./",
+        "pass-arguments-to-command":
+    [
+      {
+        "source": "payload",
+        "name": "repository.name"
+      },
+	  {
+        "source": "payload",
+        "name": "repository.ssh_url"
+      },
+    ],
+    "trigger-rule": {
+      "match": {
+        "type": "value",
+        "value": "refs/heads/Production",
+        "parameter": {
+          "source": "payload",
+          "name": "ref"
+        }
+      }
+    }
+  }
+]
+
