@@ -15,6 +15,7 @@ then
 		echo started process
 	fi
 else
+	echo "$1" > repos.list
 	cd ..
 	mkdir "$1"
 	git clone "$2"
