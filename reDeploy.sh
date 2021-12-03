@@ -1,12 +1,12 @@
 #!/bin/sh
 if grep -Fxq "$1" repos.list
 then
+	cd ../"$1"
 	if test -f ./stop.sh
 	then
 		./stop.sh
 		echo stopped process
 	fi
-	cd ../"$1"
 	git pull
         echo pulled repo "$1"
 	if test -f ./start.sh
