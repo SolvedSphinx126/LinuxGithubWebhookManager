@@ -11,19 +11,32 @@
       },
 	  {
         "source": "payload",
-        "name": "repository.ssh_url"
+        "name": "repository.clone_url"
       },
     ],
-    "trigger-rule": {
-      "match": {
-        "type": "value",
-        "value": "refs/heads/Production",
-        "parameter": {
-          "source": "payload",
-          "name": "ref"
-        }
-      }
-    }
+	"or":
+	[
+		"trigger-rule": {
+		  "match": {
+			"type": "value",
+			"value": "refs/heads/Production",
+			"parameter": {
+			  "source": "payload",
+			  "name": "ref"
+			}
+		  }
+		},
+		"trigger-rule": {
+			"match": {
+				"type": "value",
+				"value": "refs/heads/master",
+				"parameter": {
+					"source": "payload",
+					"name": "ref"
+				}
+			}
+		}
+	]
+    
   }
 ]
-

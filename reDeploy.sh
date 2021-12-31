@@ -1,4 +1,5 @@
 #!/bin/sh
+echo "Webhook detected!"
 if grep -Fxq "$1" repos.list
 then
 	cd ../"$1"

@@ -1,3 +1,3 @@
 #!/bin/bash
-webhook -hooks repo.json &
+nohup webhook -hooks repo.json -verbose &
 disown
